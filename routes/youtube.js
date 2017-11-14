@@ -1,7 +1,7 @@
 // routes/task.js
 
 'use strict'
-
+const uuidv1 = require('uuid/v1');
 const express = require('express');
 
 const youtube = require('../models/youtube');
@@ -14,6 +14,7 @@ router.route('/Channel')
         console.log(req.body);
         console.log(req.body.ChannelName);
         const task = new youtube({
+            id: uuidv1(),
             ChannelName: req.body.ChannelName,
             ChannelId: req.body.ChannelId
         });
@@ -23,7 +24,7 @@ router.route('/Channel')
                 return res.send(err);
             }
 
-            return res.json({ message: 'New task created!' });
+            return res.json(task);
         });
 
     }).get((req, res) => {
