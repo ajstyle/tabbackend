@@ -1,26 +1,3 @@
-// // configs/database.js
-
-// 'use strict';
-
-// // dependencies
-// const mongoose = require('mongoose');
-
-// // set the database name
-// const dbName = 'youtubechannel';
-
-// // connect to the database
-// mongoose.connection.openUri('mongodb://tabsapp:tabsapp@ds161455.mlab.com:61455/tabsapp');
-
-// // get notified if the connection
-// // was successful or not
-// const db = mongoose.connection;
-
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', () => {
-//     console.log(`Connected to the ${dbName} database`);
-// });
-
-
 // mongoose 4.3.x
 var mongoose = require('mongoose');
 
