@@ -46,7 +46,7 @@ router.route('/Channel/:id')
         });
     })
     .put((req, res) => {
-        Task.findByIdAndUpdate(req.params.id, {
+        youtube.findByIdAndUpdate(req.params.id, {
             ChannelName: req.body.ChannelName,
             ChannelId: req.body.ChannelId
         }, (err) => {
@@ -57,7 +57,7 @@ router.route('/Channel/:id')
         });
     })
     .delete((req, res) => {
-        Task.remove({ _id: req.params.id }, (err) => {
+        youtube.remove({ _id: req.params.id }, (err) => {
             if (err) {
                 return res.send(err);
             }
