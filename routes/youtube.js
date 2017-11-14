@@ -13,18 +13,19 @@ router.route('/Channel')
     .post((req, res) => {
         console.log(req.body);
         console.log(req.body.ChannelName);
+        console.log("--------------------", uuidv1());
         const task = new youtube({
-            id: uuidv1(),
             ChannelName: req.body.ChannelName,
             ChannelId: req.body.ChannelId
         });
-
-        task.save((err) => {
+        console.log("--------------------", task);
+        task.save((err, data) => {
             if (err) {
                 return res.send(err);
             }
 
-            return res.json(task);
+
+            return res.json({ result: data, message: 'Add Channel successfully' });
         });
 
     }).get((req, res) => {
@@ -50,11 +51,12 @@ router.route('/Channel/:id')
         youtube.findByIdAndUpdate(req.params.id, {
             ChannelName: req.body.ChannelName,
             ChannelId: req.body.ChannelId
-        }, (err) => {
+        }, (err, data) => {
             if (err) {
                 return res.send(err);
             }
-            return res.json({ message: 'Channel updated successfully' });
+            console.log("Put data", data);
+            return res.json({ result: data, message: 'Channel updated successfully' });
         });
     })
     .delete((req, res) => {
