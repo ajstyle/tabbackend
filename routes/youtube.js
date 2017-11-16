@@ -3,11 +3,13 @@
 'use strict'
 const uuidv1 = require('uuid/v1');
 const express = require('express');
-
+const cors = require('cors');
 const youtube = require('../models/youtube');
 
 const router = express.Router();
+var app = express()
 
+app.use(cors());
 // routes ending with /todos
 router.route('/Channel')
     .post((req, res) => {
