@@ -10,6 +10,7 @@ const router = express.Router();
 var app = express()
 
 app.use(cors());
+router.all("*", cors());
 // routes ending with /todos
 router.route('/Channel')
     .post((req, res) => {
